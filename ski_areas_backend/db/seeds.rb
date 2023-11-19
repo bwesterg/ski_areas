@@ -10,7 +10,7 @@
 Area.create(
     name: "Vail", 
     description: "The largest ski area in Colorado", 
-    logo: "../../assets/vail.svg", 
+    logo: "assets/vail.svg", 
     vertical: 3450, 
     epic: true, 
     ikon: false, 
@@ -20,7 +20,7 @@ Area.create(
 Area.create(
     name: "Copper Mountain", 
     description: "Best ski area in Summit County", 
-    logo: "../../assets/Copper-Mountain.png", 
+    logo: "assets/Copper-Mountain.png", 
     vertical: 2738, 
     epic: false, 
     ikon: true, 
@@ -30,7 +30,7 @@ Area.create(
 Area.create(
     name: "Crested Butte", 
     description: "Steepest in-bounds terrain in Colorado", 
-    logo: "../../assets/Crested-Butte.png", 
+    logo: "assets/Crested-Butte.png", 
     vertical: 2738, 
     epic: true, 
     ikon: false, 

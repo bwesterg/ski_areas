@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import AreaContainer from './components/AreaContainer';
+const areasUrl = "http://localhost:3000/areas";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//using class component b/c it will be using state
+class App extends Component {
+
+  state = {
+    areas: []
+  }
+
+  // componentDidMount is a lifecycle method which only runs one time,
+  // unless the component is unmounted from the DOM and remounted (e.g., refresh)
+  // putting fetch in componentDidMount makes sense b/c it will only run once,
+  // and is less data intensive.  If it was run in something else such as
+  // componentDidUpdate, fetch would run every time there was a state change.
+  componentDidMount(){
+    this.getAreas()
+  }   
+
+  getAreas = () => {
+    fetch(areasUrl)
+      .then(response => response.json())
+      .then(areas => this.setState({areas}))
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <h1>Ski Areas App</h1>
+        <AreaContainer areas={this.state.areas} />
+      </div>
+    );
+  }
 }
 
 export default App;
