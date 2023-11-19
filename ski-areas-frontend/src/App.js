@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import AreaContainer from './components/AreaContainer';
+import AreaForm from './components/AreaForm';
 const areasUrl = "http://localhost:3000/areas";
 
 //using class component b/c it will be using state
@@ -25,10 +26,21 @@ class App extends Component {
       .then(areas => this.setState({areas}))
   }
 
+  // can only change the state of App.js within App.js. Therefore, need
+  // to create a function within App.js to handle state change from form
+  addArea = (newArea) => {
+    this.setState({
+      areas: [...this.state.areas, newArea]
+    })
+  }
+
   render(){
     return (
       <div className="App">
         <h1>Ski Areas App</h1>
+        <AreaForm addArea={this.addArea}/>
+        {/* don't invoke function here^^ because it isn't being called here, 
+        but instead in AreaForm.js */}
         <AreaContainer areas={this.state.areas} />
       </div>
     );

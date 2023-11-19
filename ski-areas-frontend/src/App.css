@@ -1,8 +1,32 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  background-color: rgb(39, 39, 63);
+  background-color: rgb(106, 106, 155);
+
+}
+
+.App {
+  text-align: center;
+}
 
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Poppins';
+}
+
+.area-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  justify-content: space-evenly;
+  /* ^^^margin: auto centers element to it's parent ^^^ */
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 20px 20px -10px rgb(39, 39, 63);;
+  margin-bottom: 20px;
 }
 
 .area-list {
@@ -11,14 +35,22 @@ h1, h2, h3, h4, h5, h6, p {
   list-style-type: none;
   justify-content: space-between;
   width: 90%;
+  /* padding-inline-start: 0; */
+  padding-inline-end: 0;
 }
 
 .area-item {
+  background: white;
   width: 150px;
   height: 200px;
-  box-shadow: 0 20px 20px -10px gray;
+  box-shadow: 0 20px 20px -10px  rgb(39, 39, 63);;
   text-align: center;
   border-radius: 6px;
+}
+
+.pass-input {
+  display: flex;
+  justify-content: center;
 }
 
 .area-item img {
