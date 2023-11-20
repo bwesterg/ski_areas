@@ -17,6 +17,23 @@ export default class AreaForm extends Component{
 
     state = initialState
 
+    componentDidMount(){
+        const {area} = this.props
+        if(this.props.area){
+            const {id, name, description, logo, vertical, epic, ikon, other} = area
+            this.setState({
+                id,
+                name,
+                description,
+                logo, 
+                vertical,
+                epic,
+                ikon,
+                other
+            }) 
+        }
+    }
+
     handleChange = (event) => {
         
         let {name, value, checked} = event.target
@@ -31,14 +48,25 @@ export default class AreaForm extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addArea(this.state)
+        this.props.submitAction(this.state)
+        if(this.props.handleToggle){
+            this.props.handleToggle()
+        }
+    }
+
+    showCloseButton = () => {
+        return this.props.area
+        ? (
+            <button className="close-button" onClick={this.props.handleToggle}>CLOSE WITHOUT SAVING</button>
+        )
+        : null
     }
 
     render(){
         const {name, description, logo, vertical, epic, ikon, other} = this.state
         return (
             <form className="area-form" onSubmit={this.handleSubmit}>
-                <h2>Create a New Area</h2>
+                {this.props.area ?  <h2>Edit Area</h2> : <h2>Create a New Area</h2>}
                 <label>Name</label>
                 <input type="text" name="name" value={name} onChange={this.handleChange}/>
                 <label>Description</label>
@@ -57,6 +85,7 @@ export default class AreaForm extends Component{
                     <input type="checkbox" name="other" checked={other} onChange={this.handleChange}/>
                 </div>
                 <input type="submit" />
+                {this.showCloseButton()}
             </form>
         )
     }
