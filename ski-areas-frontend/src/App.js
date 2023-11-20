@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import AreaContainer from './components/AreaContainer';
 import AreaForm from './components/AreaForm';
-const areasUrl = "http://localhost:3000/areas";
+import { patchArea, postArea, deleteArea } from './helpers';
+const areasUrl = "http://localhost:3000/areas/";
+
 
 //using class component b/c it will be using state
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
     fetch(areasUrl)
       .then(response => response.json())
       .then(areas => this.setState({areas}))
+      //not moving this fetch to helpers b/c it is setting state
   }
 
   // can only change the state of App.js within App.js. Therefore, need
@@ -32,16 +35,37 @@ class App extends Component {
     this.setState({
       areas: [...this.state.areas, newArea]
     })
+
+    postArea(newArea)
+  }
+
+  updateArea = (updatedArea) => {
+    let areas = this.state.areas.map(area => area.id === updatedArea.id ? updatedArea : area)
+    
+    this.setState({ areas })
+
+    patchArea(updatedArea)
+  }
+
+  deleteArea = (id) => {
+    let filtered = this.state.areas.filter(area => area.id !== id)
+    this.setState({
+      areas: filtered
+    })
+
+    deleteArea(id)
   }
 
   render(){
     return (
       <div className="App">
         <h1>Ski Areas App</h1>
-        <AreaForm addArea={this.addArea}/>
+        {/* <AreaForm addArea={this.addArea}/> */}
+        <AreaForm submitAction={this.addArea}/>
+
         {/* don't invoke function here^^ because it isn't being called here, 
         but instead in AreaForm.js */}
-        <AreaContainer areas={this.state.areas} />
+        <AreaContainer updateArea={this.updateArea} deleteArea={this.deleteArea} areas={this.state.areas} />
       </div>
     );
   }
