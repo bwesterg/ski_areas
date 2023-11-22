@@ -18,15 +18,24 @@ h1, h2, h3, h4, h5, h6, p {
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 400px;
+  height: 100%;
   margin: auto;
   justify-content: space-evenly;
   /* ^^^margin: auto centers element to it's parent ^^^ */
   background-color: white;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   border-radius: 6px;
   box-shadow: 0 20px 20px -10px rgb(39, 39, 63);;
   margin-bottom: 20px;
+}
+
+/* .area-form label, .area-form input {
+  line-height: 0;
+
+} */
+
+.area-form .pass-input label {
+  line-height: 1;
 }
 
 .area-list {
@@ -50,6 +59,10 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 2em;
 }
 
+.area-item h3, .area-item p{
+  font-size: 15px;
+}
+
 .delete-button {
   color: white;
   background-color: rgb(199, 127, 127);
@@ -65,6 +78,14 @@ h1, h2, h3, h4, h5, h6, p {
 .pass-input {
   display: flex;
   justify-content: center;
+}
+
+.pass-input label {
+  line-height: unset !important;
+}
+
+.pass-group-label {
+  margin: 5px;
 }
 
 .close-button {

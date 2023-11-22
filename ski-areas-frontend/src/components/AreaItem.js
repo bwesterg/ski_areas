@@ -11,9 +11,9 @@ export default function AreaItem({id, name, description, logo, vertical, epic, i
     const handleToggle = (event) => setIsToggled(!isToggled)
     const areaCard = () => (
         <li className="area-item">
-        <h2>{name}</h2>
-        <h3>{description}</h3>
         <img src={logo} />
+        {/* {name} */}
+        <h3>{description}</h3>
         <p>{vertical} ft vertical</p>
         <p>{epic}</p>
         <p>{ikon}</p>
