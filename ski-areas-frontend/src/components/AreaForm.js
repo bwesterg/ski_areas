@@ -75,7 +75,7 @@ export default class AreaForm extends Component{
                 <input type="text" name="logo" value={logo} onChange={this.handleChange}/>
                 <label>Vertical</label>
                 <input type="number" name="vertical" value={vertical} onChange={this.handleChange}/>
-                <label>Pass Group</label>
+                <label className="pass-group-label">Pass Group</label>
                 <div className="pass-input">
                     <label>Epic</label>
                     <input type="checkbox" name="epic" checked={epic} onChange={this.handleChange}/>
