@@ -15,23 +15,25 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .skiApp__navbar {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
   padding: 2rem 6rem;
 }
 
 .skiApp__navbar-links {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  /* justify-content: flex-start; */
   align-items: center;
 }
 
-.skiApp__navbar-links_container {
+/* .skiApp__navbar-links_container {
   display: flex;
   flex-direction: row;
-}
+} */
 
 .area-form {
   display: flex;

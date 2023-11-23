@@ -4,9 +4,9 @@ import '../App.css';
 const Menu = () => (
 
     <>
-        <p><a href="#home">Home</a></p>
-        <p><a href="#About">About</a></p>
-        <p><a href="#How-it-works">How it Works</a></p>
+        <div><a href="#home">Home</a></div>
+        <div><a href="#About">About</a></div>
+        <div><a href="#How-it-works">How it Works</a></div>
     </>
 )
 
