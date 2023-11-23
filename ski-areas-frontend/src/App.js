@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import AreaContainer from './components/AreaContainer';
 import AreaForm from './components/AreaForm';
+import Navbar from './components/Navbar';
 import { patchArea, postArea, deleteArea } from './helpers';
 const areasUrl = "http://localhost:3000/areas/";
 
@@ -59,13 +60,17 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <h1>Ski Areas App</h1>
-        {/* <AreaForm addArea={this.addArea}/> */}
-        <AreaForm submitAction={this.addArea}/>
+        <div className="gradient__bg">
+          <Navbar />
+        </div>
 
-        {/* don't invoke function here^^ because it isn't being called here, 
-        but instead in AreaForm.js */}
-        <AreaContainer updateArea={this.updateArea} deleteArea={this.deleteArea} areas={this.state.areas} />
+          <h1>Ski Areas App</h1>
+          {/* <AreaForm addArea={this.addArea}/> */}
+          <AreaForm submitAction={this.addArea}/>
+
+          {/* don't invoke function here^^ because it isn't being called here, 
+          but instead in AreaForm.js */}
+          <AreaContainer updateArea={this.updateArea} deleteArea={this.deleteArea} areas={this.state.areas} />
       </div>
     );
   }
